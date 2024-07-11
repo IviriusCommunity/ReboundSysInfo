@@ -21,11 +21,19 @@
                 <TextBlock Style="{StaticResource TitleLargeTextBlockStyle}" x:Name="deviceName" Margin="16,0,0,0"/>
                 <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" x:Name="manufacturerName" Margin="16,0,0,0"/>
                 <ivirius:GroupBox>
-                    <StackPanel>
-                        <TextBlock x:Name="DeviceName"/>
-                        <TextBlock x:Name="cpu"/>
-                        <TextBlock x:Name="ram"/>
-                        <TextBlock x:Name="WindowsVersion"/>
+                    <StackPanel Orientation="Horizontal" Spacing="10">
+                        <StackPanel>
+                            <TextBlock Text="Device name" Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                            <TextBlock Text="Processor" Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                            <TextBlock Text="Memory" Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                            <TextBlock Text="Windows version" Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <TextBlock x:Name="DeviceName"/>
+                            <TextBlock x:Name="cpu"/>
+                            <TextBlock x:Name="ram"/>
+                            <TextBlock x:Name="WindowsVersion"/>
+                        </StackPanel>
                     </StackPanel>
                 </ivirius:GroupBox>
             </StackPanel>

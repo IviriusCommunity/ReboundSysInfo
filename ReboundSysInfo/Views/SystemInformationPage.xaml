@@ -18,8 +18,8 @@
                 </Image>
             </Border>
             <StackPanel Orientation="Vertical">
-                <TextBlock Style="{StaticResource TitleLargeTextBlockStyle}" x:Name="deviceName"/>
-                <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" x:Name="manufacturerName"/>
+                <TextBlock Style="{StaticResource TitleLargeTextBlockStyle}" x:Name="deviceName" Margin="16,0,0,0"/>
+                <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" x:Name="manufacturerName" Margin="16,0,0,0"/>
                 <ivirius:GroupBox>
                     <StackPanel>
                         <TextBlock x:Name="DeviceName"/>

@@ -33,6 +33,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Content Remove="Assets\icon.ico" />
+    <Content Remove="Assets\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Manifest Include="$(ApplicationManifest)" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.3233" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.5.240428000" />

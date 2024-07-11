@@ -15,7 +15,15 @@
           "Subtitle": "ReboundSysInfo",
           "ImagePath": "ms-appx:///Assets/icon.png",
           "ImageIconPath": "ms-appx:///Assets/icon.png",
-          "HideItem": true
+          "HideItem": false
+        },
+        {
+          "UniqueId": "ReboundSysInfo.Views.SystemInformationPage",
+          "Title": "System information",
+          "Subtitle": "System information",
+          "ImagePath": "ms-appx:///Assets/icon.png",
+          "ImageIconPath": "ms-appx:///Assets/icon.png",
+          "HideItem": false
         }
       ]
     }

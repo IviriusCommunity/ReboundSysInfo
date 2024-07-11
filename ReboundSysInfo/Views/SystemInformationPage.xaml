@@ -38,5 +38,25 @@
                 </ivirius:GroupBox>
             </StackPanel>
         </StackPanel>
+        <ivirius:GroupBox>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <FontIcon Glyph="&#xE950;" Width="48" Height="48"/>
+                    <TextBlock Text="Processor/CPU" Style="{StaticResource TitleTextBlockStyle}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <StackPanel>
+                        <TextBlock Text="Model" Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                        <TextBlock Text="Number of cores" Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                        <TextBlock Text="Current utilization" Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock x:Name="CPUModel"/>
+                        <TextBlock x:Name="CPUCores"/>
+                        <TextBlock x:Name="CPUUtil"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </ivirius:GroupBox>
     </StackPanel>
 </Page>

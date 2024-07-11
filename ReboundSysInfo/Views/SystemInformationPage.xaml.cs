@@ -15,6 +15,7 @@ using System.Management;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using System.Reflection.Metadata.Ecma335;
+using System.Diagnostics;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -34,30 +35,52 @@ public sealed partial class SystemInformationPage : Page
         deviceName.Text = (string)model;
         manufacturerName.Text = (string)manufacturer;
         DeviceName.Text = (string)model + $" ({Environment.MachineName})";
-        cpu.Text = GetCPUName();
+        cpu.Text = GetCPUSpecs("Name");
         ram.Text = GetRAMAmount();
         WindowsVersion.Text = Environment.OSVersion.ToString();
+        CPUModel.Text = GetCPUSpecs("Name");
+        CPUCores.Text = GetCPUSpecs("NoCores");
+        CPUUtil.Text = GetCPUSpecs("UtilPercent");
     }
 
-    public static string GetCPUName() {
+    public static string GetCPUSpecs(string param) {
         var cpu =
     new ManagementObjectSearcher("select * from Win32_Processor")
     .Get()
     .Cast<ManagementObject>()
     .First();
-        var ProcessorName = (string)cpu["Name"];
+        if (param == "Name")
+        {
+            var ProcessorName = (string)cpu["Name"];
 
-        ProcessorName =
-           ProcessorName
-           .Replace("(TM)", "™")
-           .Replace("(tm)", "™")
-           .Replace("(R)", "®")
-           .Replace("(r)", "®")
-           .Replace("(C)", "©")
-           .Replace("(c)", "©")
-           .Replace("    ", " ")
-           .Replace("  ", " ");
-        return ProcessorName;
+            ProcessorName =
+               ProcessorName
+               .Replace("(TM)", "™")
+               .Replace("(tm)", "™")
+               .Replace("(R)", "®")
+               .Replace("(r)", "®")
+               .Replace("(C)", "©")
+               .Replace("(c)", "©")
+               .Replace("    ", " ")
+               .Replace("  ", " ");
+            return ProcessorName;
+        }
+        else if (param == "NoCores")
+        {
+            var ProcessorCores = cpu["NumberOfCores"].ToString();
+            return ProcessorCores;
+        }
+        else if (param == "UtilPercent") {
+            PerformanceCounter cpuCounter;
+            cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
+            var cpu_util = cpuCounter.NextValue() + "%";
+            System.Threading.Thread.Sleep(1000);
+            cpu_util = cpuCounter.NextValue() + "%";
+            return cpu_util;
+        }
+        else {
+            return "";
+        }
     }
 
     public string GetRAMAmount()

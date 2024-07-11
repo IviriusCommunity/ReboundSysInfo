@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ReboundSysInfo.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ivirius="using:Ivirius.UI.Controls"
     mc:Ignorable="d">
 
     <StackPanel>
@@ -20,6 +20,14 @@
             <StackPanel Orientation="Vertical">
                 <TextBlock Style="{StaticResource TitleLargeTextBlockStyle}" x:Name="deviceName"/>
                 <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" x:Name="manufacturerName"/>
+                <ivirius:GroupBox>
+                    <StackPanel>
+                        <TextBlock x:Name="DeviceName"/>
+                        <TextBlock x:Name="cpu"/>
+                        <TextBlock x:Name="ram"/>
+                        <TextBlock x:Name="WindowsVersion"/>
+                    </StackPanel>
+                </ivirius:GroupBox>
             </StackPanel>
         </StackPanel>
     </StackPanel>

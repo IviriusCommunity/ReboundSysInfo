@@ -58,5 +58,25 @@
                 </StackPanel>
             </StackPanel>
         </ivirius:GroupBox>
+        <ivirius:GroupBox>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <FontIcon Glyph="&#xE950;" Width="48" Height="48"/>
+                    <TextBlock Text="Memory" Style="{StaticResource TitleTextBlockStyle}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <StackPanel>
+                        <TextBlock Text="Amount of memory installed" Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                        <TextBlock Text="Memory type" Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                        <TextBlock Text="Current utilization" Style="{StaticResource BodyStrongTextBlockStyle}"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock x:Name="RAMAmount"/>
+                        <TextBlock x:Name="RAMTypeText"/>
+                        <TextBlock x:Name="RAMUtil"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </ivirius:GroupBox>
     </StackPanel>
 </Page>

@@ -43,6 +43,7 @@ public sealed partial class SystemInformationPage : Page
         CPUUtil.Text = GetCPUSpecs("UtilPercent");
         RAMAmount.Text = GetRAMAmount();
         RAMTypeText.Text = RAMType;
+        RAMUtil.Text = GetRAMUtil();
     }
 
     public static string GetCPUSpecs(string param) {
@@ -102,11 +103,11 @@ public sealed partial class SystemInformationPage : Page
     public string GetRAMUtil()
     {
         PerformanceCounter ramCounter;
-        ramCounter = new PerformanceCounter("Memory", "% Memory Time", "_Total");
-        var cpu_util = ramCounter.NextValue() + "%";
+        ramCounter = new PerformanceCounter("Memory", "% Committed Bytes In Use", null);
+        var ram_util = ramCounter.NextValue() + "%";
         System.Threading.Thread.Sleep(1000);
-        cpu_util = ramCounter.NextValue() + "%";
-        return cpu_util;
+        ram_util = ramCounter.NextValue() + "%";
+        return ram_util;
     }
 
     public static string RAMType

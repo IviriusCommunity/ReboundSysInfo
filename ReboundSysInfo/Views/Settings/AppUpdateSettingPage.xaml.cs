@@ -35,9 +35,8 @@ public sealed partial class AppUpdateSettingPage : Page
         {
             try
             {
-                //Todo: Fix UserName and Repo
-                string username = "";
-                string repo = "";
+                string username = "Ivirius-Main";
+                string repo = "ReboundSysInfo";
                 TxtLastUpdateCheck.Text = DateTime.Now.ToShortDateString();
                 Settings.LastUpdateCheck = DateTime.Now.ToShortDateString();
                 var update = await UpdateHelper.CheckUpdateAsync(username, repo, new Version(App.Current.AppVersion));

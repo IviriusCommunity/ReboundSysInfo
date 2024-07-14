@@ -95,7 +95,8 @@ public sealed partial class SystemInformationPage : Page
         var amount = "";
         foreach (ManagementObject managementObject in managementObjectCollection)
         {
-            amount = $"{managementObject["TotalVisibleMemorySize"]}MB RAM";
+            var MemorySize = (UInt64)managementObject["TotalVisibleMemorySize"] / 1048576;
+            amount = $"{MemorySize}GB RAM";
         }
         return amount;
     }

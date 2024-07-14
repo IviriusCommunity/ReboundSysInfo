@@ -29,10 +29,10 @@
                             <TextBlock Text="Windows version" Style="{StaticResource BodyStrongTextBlockStyle}"/>
                         </StackPanel>
                         <StackPanel>
-                            <TextBlock x:Name="DeviceName"/>
-                            <TextBlock x:Name="cpu"/>
-                            <TextBlock x:Name="ram"/>
-                            <TextBlock x:Name="WindowsVersion"/>
+                            <TextBlock x:Name="DeviceName" IsTextSelectionEnabled="True"/>
+                            <TextBlock x:Name="cpu" IsTextSelectionEnabled="True"/>
+                            <TextBlock x:Name="ram" IsTextSelectionEnabled="True"/>
+                            <TextBlock x:Name="WindowsVersion" IsTextSelectionEnabled="True"/>
                         </StackPanel>
                     </StackPanel>
                 </ivirius:GroupBox>
@@ -51,9 +51,9 @@
                         <TextBlock Text="Current utilization" Style="{StaticResource BodyStrongTextBlockStyle}"/>
                     </StackPanel>
                     <StackPanel>
-                        <TextBlock x:Name="CPUModel"/>
-                        <TextBlock x:Name="CPUCores"/>
-                        <TextBlock x:Name="CPUUtil"/>
+                        <TextBlock x:Name="CPUModel" IsTextSelectionEnabled="True"/>
+                        <TextBlock x:Name="CPUCores" IsTextSelectionEnabled="True"/>
+                        <TextBlock x:Name="CPUUtil" IsTextSelectionEnabled="True"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
@@ -71,9 +71,9 @@
                         <TextBlock Text="Current utilization" Style="{StaticResource BodyStrongTextBlockStyle}"/>
                     </StackPanel>
                     <StackPanel>
-                        <TextBlock x:Name="RAMAmount"/>
-                        <TextBlock x:Name="RAMTypeText"/>
-                        <TextBlock x:Name="RAMUtil"/>
+                        <TextBlock x:Name="RAMAmount" IsTextSelectionEnabled="True"/>
+                        <TextBlock x:Name="RAMTypeText" IsTextSelectionEnabled="True"/>
+                        <TextBlock x:Name="RAMUtil" IsTextSelectionEnabled="True"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

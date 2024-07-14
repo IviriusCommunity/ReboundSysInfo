@@ -77,7 +77,7 @@ public sealed partial class SystemInformationPage : Page
             PerformanceCounter cpuCounter;
             cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
             var cpu_util = cpuCounter.NextValue() + "%";
-            System.Threading.Thread.Sleep(1000);
+            System.Threading.Thread.Sleep(10);
             cpu_util = cpuCounter.NextValue() + "%";
             return cpu_util;
         }
@@ -105,7 +105,7 @@ public sealed partial class SystemInformationPage : Page
         PerformanceCounter ramCounter;
         ramCounter = new PerformanceCounter("Memory", "% Committed Bytes In Use", null);
         var ram_util = ramCounter.NextValue() + "%";
-        System.Threading.Thread.Sleep(1000);
+        System.Threading.Thread.Sleep(10);
         ram_util = ramCounter.NextValue() + "%";
         return ram_util;
     }

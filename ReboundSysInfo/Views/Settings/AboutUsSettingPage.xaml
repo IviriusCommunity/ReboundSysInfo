@@ -16,7 +16,7 @@
             <views:BreadcrumbBarUserControl SingleItem="{x:Bind BreadCrumbBarItemText, Mode=OneWay}" />
 
             <wuc:SettingsExpander
-                Description="Description"
+                Description="A system information application made with the latest Fluent Design guidelines in mind."
                 Header="ReboundSysInfo"
                 HeaderIcon="{wuc:BitmapIcon Source=Assets/icon.png}"
                 IsExpanded="True">

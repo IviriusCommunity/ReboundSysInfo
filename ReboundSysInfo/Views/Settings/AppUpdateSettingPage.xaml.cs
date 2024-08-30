@@ -90,7 +90,7 @@ public sealed partial class AppUpdateSettingPage : Page
             },
             Margin = new Thickness(10),
             DefaultButton = ContentDialogButton.Close,
-            XamlRoot = App.CurrentWindow.Content.XamlRoot
+            XamlRoot = App.m_window.Content.XamlRoot
         };
 
         await dialog.ShowAsyncQueue();

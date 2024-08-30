@@ -17,10 +17,7 @@
     <LangVersion>Latest</LangVersion>
     <ApplicationIcon>Assets\icon.ico</ApplicationIcon>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-    <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
-    <WindowsPackageType>None</WindowsPackageType>
     <AccelerateBuildsInVisualStudio>true</AccelerateBuildsInVisualStudio>
-    <SelfContained>true</SelfContained>
     <WindowsSdkPackageVersion>10.0.22621.35-preview</WindowsSdkPackageVersion>
   </PropertyGroup>
   <ItemGroup>
@@ -55,6 +52,7 @@
     <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
     <PackageReference Include="Serilog.Sinks.Debug" Version="3.0.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
+    <PackageReference Include="WinUIEx" Version="2.3.4" />
   </ItemGroup>
   <!-- 
     Defining the "Msix" ProjectCapability here allows the Single-project MSIX Packaging

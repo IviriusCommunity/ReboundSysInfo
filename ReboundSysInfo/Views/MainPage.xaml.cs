@@ -5,9 +5,9 @@ public sealed partial class MainPage : Page
     public MainPage()
     {
         this.InitializeComponent();
-        appTitleBar.Window = App.CurrentWindow;
-        App.Current.JsonNavigationViewService.Initialize(NavView, NavFrame);
-        App.Current.JsonNavigationViewService.ConfigJson("Assets/NavViewMenu/AppData.json");
+        //appTitleBar.Window = App.CurrentWindow;
+        //App.Current.JsonNavigationViewService.Initialize(NavView, NavFrame);
+        //App.Current.JsonNavigationViewService.ConfigJson("Assets/NavViewMenu/AppData.json");
     }
 
     private void appTitleBar_BackButtonClick(object sender, RoutedEventArgs e)
@@ -25,12 +25,12 @@ public sealed partial class MainPage : Page
 
     private void NavFrame_Navigated(object sender, NavigationEventArgs e)
     {
-        appTitleBar.IsBackButtonVisible = NavFrame.CanGoBack;
+        //appTitleBar.IsBackButtonVisible = NavFrame.CanGoBack;
     }
 
     private void ThemeButton_Click(object sender, RoutedEventArgs e)
     {
-        var element = App.CurrentWindow.Content as FrameworkElement;
+        var element = App.m_window.Content as FrameworkElement;
 
         if (element.ActualTheme == ElementTheme.Light)
         {

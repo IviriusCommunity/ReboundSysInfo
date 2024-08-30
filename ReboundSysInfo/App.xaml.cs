@@ -1,8 +1,10 @@
-﻿namespace ReboundSysInfo;
+﻿using WinUIEx;
+using MicaSystemBackdrop = WinUIEx.MicaSystemBackdrop;
+
+namespace ReboundSysInfo;
 
 public partial class App : Application
 {
-    public static Window CurrentWindow = Window.Current;
     public IThemeService ThemeService { get; set; }
     public IJsonNavigationViewService JsonNavigationViewService { get; set; }
     public new static App Current => (App)Application.Current;
@@ -16,37 +18,32 @@ public partial class App : Application
         JsonNavigationViewService.ConfigSettingsPage(typeof(SettingsPage));
     }
 
-    protected async override void OnLaunched(LaunchActivatedEventArgs args)
+    public static WindowEx m_window;
+
+    protected override void OnLaunched(LaunchActivatedEventArgs args)
     {
-        CurrentWindow = new Window();
+        m_window = new WindowEx();
 
-        CurrentWindow.AppWindow.TitleBar.ExtendsContentIntoTitleBar = true;
-        CurrentWindow.AppWindow.TitleBar.ButtonBackgroundColor = Colors.Transparent;
+        m_window.SystemBackdrop = new Microsoft.UI.Xaml.Media.MicaBackdrop();
+        m_window.AppWindow.DefaultTitleBarShouldMatchAppModeTheme = true;
 
-        if (CurrentWindow.Content is not Frame rootFrame)
+        //CurrentWindow.AppWindow.TitleBar.ExtendsContentIntoTitleBar = true;
+        //CurrentWindow.AppWindow.TitleBar.ButtonBackgroundColor = Colors.Transparent;
+
+        if (m_window.Content is not Frame rootFrame)
         {
-            CurrentWindow.Content = rootFrame = new Frame();
+            m_window.Content = rootFrame = new Frame();
         }
-
-        ThemeService = new ThemeService();
-        ThemeService.Initialize(CurrentWindow);
-        ThemeService.ConfigBackdrop();
-        ThemeService.ConfigElementTheme();
 
         rootFrame.Navigate(typeof(MainPage));
 
-        CurrentWindow.Title = CurrentWindow.AppWindow.Title = $"{AppName} v{AppVersion}";
-        CurrentWindow.AppWindow.SetIcon("Assets/icon.ico");
+        m_window.Title = $"{AppName} v{AppVersion}";
+        m_window.SetIcon("Assets/icon.ico");
 
-        if (Settings.UseDeveloperMode)
-        {
-            ConfigureLogger();
-        }
+        m_window.Activate();
+        //await DynamicLocalizerHelper.InitializeLocalizer("en-US");
 
-        CurrentWindow.Activate();
-        await DynamicLocalizerHelper.InitializeLocalizer("en-US");
-
-        UnhandledException += (s, e) => Logger?.Error(e.Exception, "UnhandledException");
+        //UnhandledException += (s, e) => Logger?.Error(e.Exception, "UnhandledException");
     }
 }
 
